@@ -12,7 +12,7 @@ Built with **Java 17**, **Spring Boot 3**, and **Spring Shell**. Designed with *
 j-harmonix/                      ← Parent Maven project
 ├── j-harmonix-core/             ← Domain model + Harmony Engine (pure Java, no framework)
 │   └── src/
-│       ├── main/java/org/jharmonix/core/
+│       ├── main/java/it/alf/jharmonix/core/
 │       │   ├── model/           ← Note, Interval, Chord, ChordQuality, Scale, ScaleType,
 │       │   │                       KeySignature, Progression
 │       │   ├── engine/          ← ChordSelector, JazzRuleEngine, ModulationStrategy,
@@ -21,7 +21,7 @@ j-harmonix/                      ← Parent Maven project
 │       └── test/java/           ← JUnit 5 + AssertJ tests (NoteTest, ChordTest, ScaleTest …)
 │
 ├── j-harmonix-cli/              ← Spring Boot + Spring Shell adapter
-│   └── src/main/java/org/jharmonix/cli/
+│   └── src/main/java/it/alf/jharmonix/cli/
 │       ├── JHarmonixApplication.java
 │       ├── config/HarmonyEngineConfig.java
 │       └── command/HarmonyCliCommands.java

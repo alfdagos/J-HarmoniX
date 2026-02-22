@@ -17,4 +17,4 @@ jharmonix:
 logging:
   level:
     root: WARN
-    org.jharmonix: INFO
+    it.alf.jharmonix: INFO
