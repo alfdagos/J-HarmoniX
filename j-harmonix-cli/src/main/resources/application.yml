@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: J-Harmonix
+  shell:
+    interactive:
+      enabled: true
+    # Customise the shell prompt
+    command:
+      help:
+        group-commands: true
+
+jharmonix:
+  engine:
+    # Seed for reproducible output; set to 0 (or omit) for random results each run
+    seed: 0
+
+logging:
+  level:
+    root: WARN
+    org.jharmonix: INFO
