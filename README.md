@@ -133,19 +133,19 @@ curl -X POST http://localhost:8080/api/v1/progressions/generate \
 ## Architecture overview
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                 j-harmonix-core (Domain)                │
-│                                                         │
-│  ┌──────────────┐    ┌────────────────────────────┐     │
-│  │  music-model │ ←→ │      harmony-engine        │     │
-│  │  Note        │    │  ChordSelector             │     │
-│  │  Chord       │    │  JazzRuleEngine            │     │
-│  │  Scale       │    │  ModulationStrategy        │     │
-│  │  Progression │    │  StructureComposer         │     │
-│  └──────────────┘    │  HarmonyGeneratorService   │     │
-│                      └────────────────────────────┘     │
-│                           ↕ HarmonyGeneratorPort        │
-└─────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────┐
+│                 j-harmonix-core (Domain)               │
+│                                                        │
+│  ┌──────────────┐    ┌────────────────────────────┐    │
+│  │  music-model │ ←→ │      harmony-engine        │    │
+│  │  Note        │    │  ChordSelector             │    │
+│  │  Chord       │    │  JazzRuleEngine            │    │
+│  │  Scale       │    │  ModulationStrategy        │    │
+│  │  Progression │    │  StructureComposer         │    │
+│  └──────────────┘    │  HarmonyGeneratorService   │    │
+│                      └────────────────────────────┘    │
+│                           ↕ HarmonyGeneratorPort       │
+└────────────────────────────────────────────────────────┘
           ↕ (implements port)       ↕ (implements port)
    ┌──────────────────┐       ┌───────────────────────┐
    │  j-harmonix-cli  │       │   j-harmonix-api      │

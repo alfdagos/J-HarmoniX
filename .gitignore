@@ -10,6 +10,8 @@ hs_err_pid*
 target/
 documenti_prompt/
 ROADMAP.md
+AnalisiTecnica.md
+PianoDiSviluppo.md
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
