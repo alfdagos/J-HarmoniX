@@ -8,7 +8,6 @@ hs_err_pid*
 
 # ── Maven ─────────────────────────────────────────────────────────────────────
 target/
-temp
 documenti_prompt/
 ROADMAP.md
 AnalisiTecnica.md
