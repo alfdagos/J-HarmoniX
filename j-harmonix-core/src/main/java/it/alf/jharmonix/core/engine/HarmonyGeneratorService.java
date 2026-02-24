@@ -1,11 +1,11 @@
 package it.alf.jharmonix.core.engine;
 
+import java.util.List;
+import java.util.Objects;
+
 import it.alf.jharmonix.core.model.Progression;
 import it.alf.jharmonix.core.port.HarmonyGeneratorPort;
 import it.alf.jharmonix.core.port.ProgressionRequest;
-
-import java.util.List;
-import java.util.Objects;
 
 public final class HarmonyGeneratorService implements HarmonyGeneratorPort {
 
@@ -18,7 +18,7 @@ public final class HarmonyGeneratorService implements HarmonyGeneratorPort {
     public static HarmonyGeneratorService withSeed(long seed) {
         JazzRuleEngine rules      = new JazzRuleEngine(seed);
         ChordSelector selector    = new ChordSelector(seed);
-        ModulationStrategy mod    = new ModulationStrategy(rules, seed);
+        ModulationStrategy mod    = new ModulationStrategy(seed);
         StructureComposer composer = new StructureComposer(selector, rules, mod);
         return new HarmonyGeneratorService(composer);
     }

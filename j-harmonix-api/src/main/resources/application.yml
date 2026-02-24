@@ -1,0 +1,29 @@
+# J-Harmonix API Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: j-harmonix-api
+
+# J-Harmonix specific configuration
+jharmonix:
+  engine:
+    seed: 0  # 0 = random seed
+
+# OpenAPI / Swagger UI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+
+# Logging
+logging:
+  level:
+    it.alf.jharmonix: INFO
+    org.springframework.web: INFO

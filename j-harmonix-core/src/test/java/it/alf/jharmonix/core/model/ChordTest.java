@@ -1,11 +1,11 @@
 package it.alf.jharmonix.core.model;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNullPointerException;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 @DisplayName("Chord")
 class ChordTest {
@@ -75,5 +75,99 @@ class ChordTest {
     void rejectsNullRoot() {
         assertThatNullPointerException()
             .isThrownBy(() -> Chord.of(null, ChordQuality.MAJOR_SEVENTH));
+    }
+
+    @Test
+    @DisplayName("inversions() returns root position plus all inversions")
+    void inversionsReturnsCorrectCount() {
+        // Given - C major triad (3 notes)
+        Chord cMajor = Chord.of(Note.fromName("C"), ChordQuality.MAJOR_TRIAD);
+        
+        // When
+        List<List<Note>> inversions = cMajor.inversions();
+        
+        // Then - should have 3 inversions (root, 1st, 2nd)
+        assertThat(inversions).hasSize(3);
+    }
+
+    @Test
+    @DisplayName("first inversion of C major puts E in bass")
+    void firstInversionCMajor() {
+        // Given
+        Chord cMajor = Chord.of(Note.fromName("C"), ChordQuality.MAJOR_TRIAD);
+        
+        // When
+        List<List<Note>> inversions = cMajor.inversions();
+        List<Note> firstInversion = inversions.get(1);
+        
+        // Then - C moves up an octave: E, G, C+12
+        assertThat(firstInversion).hasSize(3);
+        assertThat(firstInversion.get(0)).isEqualTo(Note.fromName("E")); // bass
+        assertThat(firstInversion.get(1)).isEqualTo(Note.fromName("G"));
+        assertThat(firstInversion.get(2)).isEqualTo(Note.fromName("C")); // raised octave
+    }
+
+    @Test
+    @DisplayName("second inversion of C major puts G in bass")
+    void secondInversionCMajor() {
+        // Given
+        Chord cMajor = Chord.of(Note.fromName("C"), ChordQuality.MAJOR_TRIAD);
+        
+        // When
+        List<List<Note>> inversions = cMajor.inversions();
+        List<Note> secondInversion = inversions.get(2);
+        
+        // Then - E moves up: G, C+12, E+12
+        assertThat(secondInversion).hasSize(3);
+        assertThat(secondInversion.get(0)).isEqualTo(Note.fromName("G")); // bass
+        assertThat(secondInversion.get(1)).isEqualTo(Note.fromName("C")); // raised
+        assertThat(secondInversion.get(2)).isEqualTo(Note.fromName("E")); // raised
+    }
+
+    @Test
+    @DisplayName("inversions of Cmaj7 includes third inversion")
+    void inversionsCmaj7() {
+        // Given - 4-note chord
+        Chord cmaj7 = Chord.of(Note.fromName("C"), ChordQuality.MAJOR_SEVENTH);
+        
+        // When
+        List<List<Note>> inversions = cmaj7.inversions();
+        
+        // Then - should have 4 inversions
+        assertThat(inversions).hasSize(4);
+        
+        // Root position: C E G B
+        assertThat(inversions.get(0)).containsExactly(
+            Note.fromName("C"),
+            Note.fromName("E"),
+            Note.fromName("G"),
+            Note.fromName("B")
+        );
+        
+        // First inversion: E G B C+12
+        assertThat(inversions.get(1).get(0)).isEqualTo(Note.fromName("E"));
+        
+        // Second inversion: G B C+12 E+12
+        assertThat(inversions.get(2).get(0)).isEqualTo(Note.fromName("G"));
+        
+        // Third inversion: B C+12 E+12 G+12
+        assertThat(inversions.get(3).get(0)).isEqualTo(Note.fromName("B"));
+    }
+
+    @Test
+    @DisplayName("inversions preserves original chord notes")
+    void inversionsDoesNotMutateOriginal() {
+        // Given
+        Chord cMajor = Chord.of(Note.fromName("C"), ChordQuality.MAJOR_TRIAD);
+        List<Note> originalNotes = cMajor.notes();
+        
+        // When
+        List<List<Note>> inversions = cMajor.inversions();
+        
+        // Then - original chord unchanged
+        assertThat(cMajor.notes()).isEqualTo(originalNotes);
+        
+        // And root position matches original
+        assertThat(inversions.get(0)).isEqualTo(originalNotes);
     }
 }

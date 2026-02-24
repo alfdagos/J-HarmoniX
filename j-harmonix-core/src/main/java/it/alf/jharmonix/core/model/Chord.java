@@ -38,6 +38,42 @@ public final class Chord {
         return new Chord(root.transpose(semitones), quality);
     }
 
+    /**
+     * Returns chord inversions. For a chord with N notes:
+     * - Index 0: root position (original chord)
+     * - Index 1: first inversion (third in bass)
+     * - Index 2: second inversion (fifth in bass)
+     * - Index 3+: subsequent inversions for extended chords
+     * 
+     * Each inversion is represented as a new list of notes with the lowest
+     * note moved up an octave.
+     * 
+     * @return list of note lists, one for each inversion (including root position)
+     */
+    public List<List<Note>> inversions() {
+        List<Note> originalNotes = notes();
+        int numNotes = originalNotes.size();
+        
+        List<List<Note>> allInversions = new ArrayList<>(numNotes);
+        
+        // Root position (original)
+        allInversions.add(originalNotes);
+        
+        // Generate each inversion by moving the bottom note up an octave
+        List<Note> currentInversion = new ArrayList<>(originalNotes);
+        for (int inv = 1; inv < numNotes; inv++) {
+            // Move bottom note up an octave
+            Note bottomNote = currentInversion.removeFirst();
+            Note raisedNote = bottomNote.transpose(12);
+            currentInversion.add(raisedNote);
+            
+            // Store this inversion
+            allInversions.add(new ArrayList<>(currentInversion));
+        }
+        
+        return Collections.unmodifiableList(allInversions);
+    }
+
     @Override
     public String toString() {
         return root.toString() + quality.getSymbol();

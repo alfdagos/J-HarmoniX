@@ -9,7 +9,48 @@
   </parent>
   <artifactId>j-harmonix-api</artifactId>
   <packaging>jar</packaging>
+  
   <dependencies>
-    <!-- Placeholder for future web adapter dependencies -->
+    <!-- Core domain -->
+    <dependency>
+      <groupId>it.alf.jharmonix</groupId>
+      <artifactId>j-harmonix-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <!-- Spring Boot Web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
+    <!-- Spring Boot Validation -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+    
+    <!-- SpringDoc OpenAPI (Swagger) -->
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>

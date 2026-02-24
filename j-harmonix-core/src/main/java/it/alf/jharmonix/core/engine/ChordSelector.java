@@ -1,23 +1,14 @@
 package it.alf.jharmonix.core.engine;
 
-import it.alf.jharmonix.core.model.*;
-import it.alf.jharmonix.core.port.ProgressionRequest;
+import it.alf.jharmonix.core.model.Chord;
+import it.alf.jharmonix.core.model.ChordQuality;
+import it.alf.jharmonix.core.model.KeySignature;
 import it.alf.jharmonix.core.port.ProgressionRequest.ComplexityLevel;
 import it.alf.jharmonix.core.port.ProgressionRequest.HarmonyStyle;
 
 public final class ChordSelector {
 
     public enum HarmonicFunction { TONIC, SUBDOMINANT, DOMINANT }
-
-    private static final HarmonicFunction[] MAJOR_FUNCTIONS = {
-        HarmonicFunction.TONIC,
-        HarmonicFunction.SUBDOMINANT,
-        HarmonicFunction.TONIC,
-        HarmonicFunction.SUBDOMINANT,
-        HarmonicFunction.DOMINANT,
-        HarmonicFunction.TONIC,
-        HarmonicFunction.DOMINANT
-    };
 
     private final java.util.Random random;
 
@@ -30,7 +21,7 @@ public final class ChordSelector {
                         HarmonyStyle style) {
 
         Chord base = selectDiatonicChord(function, key);
-        return applyComplexityAndStyle(base, function, key, complexity, style);
+        return applyComplexityAndStyle(base, function, complexity, style);
     }
 
     private Chord selectDiatonicChord(HarmonicFunction function, KeySignature key) {
@@ -43,7 +34,6 @@ public final class ChordSelector {
 
     private Chord applyComplexityAndStyle(Chord base,
                                           HarmonicFunction function,
-                                          KeySignature key,
                                           ComplexityLevel complexity,
                                           HarmonyStyle style) {
         if (complexity == ComplexityLevel.TRIADS) {

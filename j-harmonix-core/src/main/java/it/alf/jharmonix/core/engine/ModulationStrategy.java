@@ -1,23 +1,23 @@
 package it.alf.jharmonix.core.engine;
 
-import it.alf.jharmonix.core.model.*;
-import it.alf.jharmonix.core.port.ProgressionRequest.ModulationFrequency;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import it.alf.jharmonix.core.model.Chord;
+import it.alf.jharmonix.core.model.KeySignature;
+import it.alf.jharmonix.core.model.Scale;
+import it.alf.jharmonix.core.port.ProgressionRequest.ModulationFrequency;
+
 public final class ModulationStrategy {
 
-    private final JazzRuleEngine ruleEngine;
     private final java.util.Random random;
 
-    public ModulationStrategy(JazzRuleEngine ruleEngine, long seed) {
-        this.ruleEngine = ruleEngine;
+    public ModulationStrategy(long seed) {
         this.random = new java.util.Random(seed);
     }
 
-    public ModulationStrategy(JazzRuleEngine ruleEngine) {
-        this(ruleEngine, System.currentTimeMillis());
+    public ModulationStrategy() {
+        this(System.currentTimeMillis());
     }
 
     public List<Chord> buildBridge(KeySignature source,

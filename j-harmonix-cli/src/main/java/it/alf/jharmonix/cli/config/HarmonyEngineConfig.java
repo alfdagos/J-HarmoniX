@@ -1,14 +1,15 @@
 package it.alf.jharmonix.cli.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import it.alf.jharmonix.core.engine.ChordSelector;
+import it.alf.jharmonix.core.engine.HarmonyGeneratorService;
 import it.alf.jharmonix.core.engine.JazzRuleEngine;
 import it.alf.jharmonix.core.engine.ModulationStrategy;
 import it.alf.jharmonix.core.engine.StructureComposer;
 import it.alf.jharmonix.core.port.HarmonyGeneratorPort;
-import it.alf.jharmonix.core.engine.HarmonyGeneratorService;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class HarmonyEngineConfig {
@@ -27,10 +28,10 @@ public class HarmonyEngineConfig {
     }
 
     @Bean
-    ModulationStrategy modulationStrategy(JazzRuleEngine ruleEngine) {
+    ModulationStrategy modulationStrategy() {
         return seed == 0
-            ? new ModulationStrategy(ruleEngine)
-            : new ModulationStrategy(ruleEngine, seed);
+            ? new ModulationStrategy()
+            : new ModulationStrategy(seed);
     }
 
     @Bean

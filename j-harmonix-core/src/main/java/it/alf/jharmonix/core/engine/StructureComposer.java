@@ -1,12 +1,14 @@
 package it.alf.jharmonix.core.engine;
 
-import it.alf.jharmonix.core.model.*;
-import it.alf.jharmonix.core.port.ProgressionRequest;
-import it.alf.jharmonix.core.port.ProgressionRequest.HarmonyStyle;
-import it.alf.jharmonix.core.engine.ChordSelector.HarmonicFunction;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import it.alf.jharmonix.core.engine.ChordSelector.HarmonicFunction;
+import it.alf.jharmonix.core.model.Chord;
+import it.alf.jharmonix.core.model.KeySignature;
+import it.alf.jharmonix.core.model.Progression;
+import it.alf.jharmonix.core.port.ProgressionRequest;
+import it.alf.jharmonix.core.port.ProgressionRequest.HarmonyStyle;
 
 public final class StructureComposer {
 
@@ -41,7 +43,7 @@ public final class StructureComposer {
             int bars = barsForSection(token);
 
             Progression raw = buildSection(label, sectionKey, bars, request);
-            Progression enriched = ruleEngine.apply(raw, sectionKey, request.getStyle());
+            Progression enriched = ruleEngine.apply(raw, sectionKey, request.getStyle(), request.getComplexity());
 
             if (!bridge.isEmpty()) {
                 List<Chord> withBridge = new ArrayList<>(bridge);
