@@ -1,15 +1,18 @@
 package it.alf.jharmonix.cli.command;
 
-import it.alf.jharmonix.core.model.Progression;
-import it.alf.jharmonix.core.model.ScaleType;
-import it.alf.jharmonix.core.port.HarmonyGeneratorPort;
-import it.alf.jharmonix.core.port.ProgressionRequest;
-import it.alf.jharmonix.core.port.ProgressionRequest.*;
+import java.util.List;
+
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
 
-import java.util.List;
+import it.alf.jharmonix.core.model.Progression;
+import it.alf.jharmonix.core.model.ScaleType;
+import it.alf.jharmonix.core.port.HarmonyGeneratorPort;
+import it.alf.jharmonix.core.port.ProgressionRequest;
+import it.alf.jharmonix.core.port.ProgressionRequest.ComplexityLevel;
+import it.alf.jharmonix.core.port.ProgressionRequest.HarmonyStyle;
+import it.alf.jharmonix.core.port.ProgressionRequest.ModulationFrequency;
 
 /**
  * Spring Shell commands for J-Harmonix.
@@ -92,19 +95,19 @@ public class HarmonyCliCommands {
     public String styles() {
         return """
             Available harmony styles:
-              SIMPLE           – Triads, diatonic only
-              POP              – Some seventh chords, no jazz substitutions
-              JAZZ_STANDARD    – ii-V-I, turnarounds, basic extensions
-              JAZZ_MODERN      – Altered dominants, tritone subs, advanced extensions
+              SIMPLE           - Triads, diatonic only
+              POP              - Some seventh chords, no jazz substitutions
+              JAZZ_STANDARD    - ii-V-I, turnarounds, basic extensions
+              JAZZ_MODERN      - Altered dominants, tritone subs, advanced extensions
             """;
     }
 
     private String formatOutput(String tonic, String scale, String form,
                                 List<Progression> sections) {
-        String separator = "═".repeat(60);
+        String separator = "=".repeat(60);
         StringBuilder sb = new StringBuilder();
         sb.append("\n").append(separator).append("\n");
-        sb.append("  J-Harmonix  │  Key: %s %s  │  Form: %s%n"
+        sb.append("  J-Harmonix  |  Key: %s %s  |  Form: %s%n"
             .formatted(tonic.toUpperCase(), scale, form.toUpperCase()));
         sb.append(separator).append("\n\n");
 
