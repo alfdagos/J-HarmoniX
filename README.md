@@ -147,10 +147,10 @@ curl -X POST http://localhost:8080/api/v1/progressions/generate \
 │                           ↕ HarmonyGeneratorPort        │
 └─────────────────────────────────────────────────────────┘
           ↕ (implements port)       ↕ (implements port)
-┌──────────────────┐       ┌───────────────────────┐
-│  j-harmonix-cli  │       │   j-harmonix-api      │
-│  Spring Shell    │       │   Spring MVC + REST   │
-└──────────────────┘       └───────────────────────┘
+   ┌──────────────────┐       ┌───────────────────────┐
+   │  j-harmonix-cli  │       │   j-harmonix-api      │
+   │  Spring Shell    │       │   Spring MVC + REST   │
+   └──────────────────┘       └───────────────────────┘
 ```
 
 ---
