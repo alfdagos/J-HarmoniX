@@ -1,4 +1,4 @@
-# J-Harmonix 🎵
+# J-HarmoniX 🎵
 
 > **Jazz Harmony Generator** – a modular CLI application that generates coherent chord progressions using music-theory rules and jazz-specific techniques.
 
