@@ -1,0 +1,9 @@
+application:
+  title: J-Harmonix Core
+  version: ${project.version}
+
+# Core module has no server; this file provides metadata used by the banner
+
+logging:
+  level:
+    it.alf.jharmonix: INFO

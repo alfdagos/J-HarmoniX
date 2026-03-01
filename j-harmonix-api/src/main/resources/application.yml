@@ -8,6 +8,11 @@ spring:
   application:
     name: j-harmonix-api
 
+# Application metadata used by banner.txt
+application:
+  title: J-Harmonix API
+  version: ${project.version}
+
 # J-Harmonix specific configuration
 jharmonix:
   engine:

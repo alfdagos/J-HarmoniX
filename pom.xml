@@ -84,6 +84,19 @@
   </dependencyManagement>
 
   <build>
+    <!-- Enable resource filtering for modules (allows ${project.version} substitution in resources) -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.yml</include>
+          <include>**/*.properties</include>
+          <include>**/banner.txt</include>
+        </includes>
+      </resource>
+    </resources>
+
     <pluginManagement>
       <plugins>
         <plugin>
