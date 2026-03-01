@@ -9,6 +9,6 @@ public class JHarmonixPromptProvider implements PromptProvider {
 
     @Override
     public AttributedString getPrompt() {
-        return new AttributedString("j-harmonix:> ");
+        return new AttributedString("J-HarmoniX:> ");
     }
 }

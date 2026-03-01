@@ -40,7 +40,7 @@ Se vedi il warning `"Unable to create a system terminal, creating a dumb termina
 
 ## 📦 Comandi Disponibili
 
-Una volta avviata la shell (`shell:>`), sono disponibili i seguenti comandi:
+Una volta avviata la shell (`J-HarmoniX:>`), sono disponibili i seguenti comandi:
 
 | Comando      | Descrizione                                    |
 |--------------|------------------------------------------------|
