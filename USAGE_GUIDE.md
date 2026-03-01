@@ -5,8 +5,8 @@ Guida completa per utilizzare J-Harmonix, il generatore di progressioni armonich
 ---
 
 ## 📋 Indice
-
 - [Avvio dell'Applicazione](#avvio-dellapplicazione)
+- [Interfaccia Grafica (GUI)](#interfaccia-grafica-gui)
 - [Comandi Disponibili](#comandi-disponibili)
 - [Parametri del Comando Generate](#parametri-del-comando-generate)
 - [Esempi Base](#esempi-base)
@@ -30,7 +30,6 @@ java -jar j-harmonix-cli/target/j-harmonix-cli-0.1.0-SNAPSHOT.jar
 
 ```bash
 mvn -pl j-harmonix-cli spring-boot:run
-```
 
 ### Nota
 

@@ -5,8 +5,8 @@ Complete guide to using J-Harmonix, the jazz harmonic progression generator.
 ---
 
 ## 📋 Table of Contents
-
 - [Starting the Application](#starting-the-application)
+- [Desktop GUI](#desktop-gui)
 - [Available Commands](#available-commands)
 - [Generate Command Parameters](#generate-command-parameters)
 - [Basic Examples](#basic-examples)
@@ -30,7 +30,6 @@ java -jar j-harmonix-cli/target/j-harmonix-cli-0.1.0-SNAPSHOT.jar
 
 ```bash
 mvn -pl j-harmonix-cli spring-boot:run
-```
 
 ### Note
 

@@ -1,0 +1,128 @@
+.app-root {
+  -fx-font-family: "Segoe UI", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  -fx-background-color: linear-gradient(to bottom right, #f6f7fb, #e7eaf3);
+}
+
+.app-menu {
+  -fx-background-color: #111827;
+}
+
+.app-menu .label {
+  -fx-text-fill: #f3f4f6;
+}
+
+.top-bar {
+  -fx-background-color: #ffffff;
+  -fx-border-color: #e5e7eb;
+  -fx-border-width: 0 0 1 0;
+}
+
+.app-title {
+  -fx-text-fill: #111827;
+  -fx-font-weight: 600;
+}
+
+.panel-title {
+  -fx-text-fill: #111827;
+  -fx-font-size: 16px;
+  -fx-font-weight: 600;
+}
+
+.section-title {
+  -fx-text-fill: #4b5563;
+  -fx-font-size: 13px;
+  -fx-font-weight: 600;
+}
+
+.side-panel {
+  -fx-background-color: #ffffff;
+  -fx-border-color: #e5e7eb;
+  -fx-border-width: 1;
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
+}
+
+.main-panel {
+  -fx-background-color: #ffffff;
+  -fx-border-color: #e5e7eb;
+  -fx-border-width: 1;
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
+}
+
+.section {
+  -fx-background-color: #f9fafb;
+  -fx-padding: 12;
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
+  -fx-border-color: #e5e7eb;
+  -fx-border-width: 1;
+}
+
+.field-label {
+  -fx-text-fill: #374151;
+  -fx-min-width: 84;
+}
+
+.input {
+  -fx-background-color: #ffffff;
+  -fx-border-color: #d1d5db;
+  -fx-border-radius: 8;
+  -fx-background-radius: 8;
+}
+
+.output-area {
+  -fx-control-inner-background: #0f172a;
+  -fx-text-fill: #e2e8f0;
+  -fx-font-family: "Cascadia Code", "JetBrains Mono", monospace;
+  -fx-highlight-fill: #2563eb;
+  -fx-highlight-text-fill: #ffffff;
+}
+
+.card {
+  -fx-background-color: linear-gradient(to bottom right, #ffffff, #f8fafc);
+  -fx-padding: 12;
+  -fx-background-radius: 12;
+  -fx-border-radius: 12;
+  -fx-border-color: #e5e7eb;
+  -fx-border-width: 1;
+}
+
+.card-title {
+  -fx-text-fill: #6b7280;
+  -fx-font-size: 12px;
+  -fx-font-weight: 600;
+}
+
+.card-primary {
+  -fx-text-fill: #111827;
+  -fx-font-size: 16px;
+  -fx-font-weight: 600;
+}
+
+.card-secondary {
+  -fx-text-fill: #6b7280;
+  -fx-font-size: 12px;
+}
+
+.pill {
+  -fx-background-color: #111827;
+  -fx-text-fill: #f9fafb;
+  -fx-background-radius: 16;
+  -fx-padding: 6 12;
+}
+
+.primary {
+  -fx-background-color: #2563eb;
+  -fx-text-fill: #f9fafb;
+  -fx-background-radius: 12;
+  -fx-padding: 6 14;
+}
+
+.ghost {
+  -fx-background-color: transparent;
+  -fx-border-color: #d1d5db;
+  -fx-text-fill: #111827;
+  -fx-border-radius: 12;
+  -fx-padding: 6 14;
+}

@@ -15,6 +15,7 @@
     <module>j-harmonix-core</module>
     <module>j-harmonix-cli</module>
     <module>j-harmonix-api</module>
+    <module>j-harmonix-gui</module>
   </modules>
 
   <properties>
