@@ -1,8 +1,8 @@
-# J-Harmonix 🎵
+# J-HarmoniX 🎵
 
 > **Jazz Harmony Generator** – a modular CLI application that generates coherent chord progressions using music-theory rules and jazz-specific techniques.
 
-Built with **Java 17**, **Spring Boot 3**, and **Spring Shell**. Designed with **Hexagonal Architecture** (Ports & Adapters) so the core logic is fully decoupled from the CLI – ready to be extended to REST or mobile adapters.
+Built with **Java 21**, **Spring Boot 3**, and **Spring Shell**. Designed with **Hexagonal Architecture** (Ports & Adapters) so the core logic is fully decoupled from the CLI – ready to be extended to REST or mobile adapters.
 
 ---
 
