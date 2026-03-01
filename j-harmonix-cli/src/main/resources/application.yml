@@ -1,10 +1,6 @@
 spring:
   application:
     name: J-Harmonix
-  # Application metadata used by banner.txt
-application:
-  title: J-Harmonix CLI
-  version: ${project.version}
   shell:
     interactive:
       enabled: true
@@ -12,6 +8,11 @@ application:
     command:
       help:
         group-commands: true
+
+# Application metadata used by banner.txt
+application:
+  title: J-Harmonix CLI
+  version: ${project.version}
 
 jharmonix:
   engine:

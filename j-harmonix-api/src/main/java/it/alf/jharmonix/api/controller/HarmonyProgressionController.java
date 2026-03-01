@@ -237,10 +237,8 @@ public class HarmonyProgressionController {
         
         // Parse enums from strings
         ScaleType scaleType = ScaleType.valueOf(request.scaleType().toUpperCase());
-        ProgressionRequest.HarmonyStyle style = 
-            ProgressionRequest.HarmonyStyle.valueOf(request.style().toUpperCase());
-        ProgressionRequest.ComplexityLevel complexity = 
-            ProgressionRequest.ComplexityLevel.valueOf(request.complexity().toUpperCase());
+        ProgressionRequest.HarmonyStyle style = mapHarmonyStyle(request.style());
+        ProgressionRequest.ComplexityLevel complexity = mapComplexityLevel(request.complexity());
         ProgressionRequest.ModulationFrequency modulation = 
             ProgressionRequest.ModulationFrequency.valueOf(request.modulationFrequency().toUpperCase());
         
@@ -267,6 +265,30 @@ public class HarmonyProgressionController {
         );
         
         return ResponseEntity.ok(response);
+    }
+
+    private ProgressionRequest.HarmonyStyle mapHarmonyStyle(String rawStyle) {
+        String normalizedStyle = rawStyle.toUpperCase();
+        return switch (normalizedStyle) {
+            case "TRADITIONAL_JAZZ" -> ProgressionRequest.HarmonyStyle.JAZZ_STANDARD;
+            case "BEBOP", "CONTEMPORARY_JAZZ" -> ProgressionRequest.HarmonyStyle.JAZZ_MODERN;
+            case "MODAL" -> ProgressionRequest.HarmonyStyle.SIMPLE;
+            case "SIMPLE", "POP", "JAZZ_STANDARD", "JAZZ_MODERN" ->
+                ProgressionRequest.HarmonyStyle.valueOf(normalizedStyle);
+            default -> throw new IllegalArgumentException("Invalid harmony style: " + rawStyle);
+        };
+    }
+
+    private ProgressionRequest.ComplexityLevel mapComplexityLevel(String rawComplexity) {
+        String normalizedComplexity = rawComplexity.toUpperCase();
+        return switch (normalizedComplexity) {
+            case "BASIC" -> ProgressionRequest.ComplexityLevel.TRIADS;
+            case "INTERMEDIATE" -> ProgressionRequest.ComplexityLevel.SEVENTH_CHORDS;
+            case "ADVANCED" -> ProgressionRequest.ComplexityLevel.FULL_EXTENSIONS;
+            case "TRIADS", "SEVENTH_CHORDS", "NINTHS", "FULL_EXTENSIONS" ->
+                ProgressionRequest.ComplexityLevel.valueOf(normalizedComplexity);
+            default -> throw new IllegalArgumentException("Invalid complexity level: " + rawComplexity);
+        };
     }
 
     @GetMapping("/scales")
