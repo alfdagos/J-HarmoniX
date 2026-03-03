@@ -31,6 +31,8 @@ java -jar j-harmonix-cli/target/j-harmonix-cli-0.1.0-SNAPSHOT.jar
 ```bash
 mvn -pl j-harmonix-cli spring-boot:run
 
+mvn javafx:run -pl j-harmonix-gui
+
 ### Note
 
 If you see the warning `"Unable to create a system terminal, creating a dumb terminal"`, this is normal and does not prevent the application from functioning.
